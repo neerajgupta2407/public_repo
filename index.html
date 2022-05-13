@@ -146,82 +146,7 @@
         <br>
         {% endfor %}
         {# Budget Section Ends here. #}
-        {# <div style="width: 65%;background-color: white;padding: 1rem;">#}
-            {# <div style="font-size: 1.2rem;">Your Bing Budget</div>#}
-            {#
-            <hr>#}
-            {# <br>#}
-            {# <div style="display: inline-flex;">#}
-                {# <div style="padding-right: 9px;padding-left: 3rem;">#}
-                    {# <div style="padding: 4px;font-size: 1rem;font-weight: 550;">Last month you spent</div>#}
-                    {# <div style="padding: 4px;font-size: 1rem;font-weight: 550;">&nbsp;&nbsp;&nbsp;&nbsp;Towards your
-                        budget of</div>#}
-                    {# </div>#}
-                {# <br>#}
-                {# <div style="display: flex;">#}
-                    {# <div>#}
-                        {# <div style="color: #E1216F;font-size: 1rem;font-weight: 550;">#}
-                            {# £4,000.59#}
-                            {# </div>#}
-                        {#
-                        <hr>#}
-                        {# <div style="font-size: 1rem;font-weight: 550;">#}
-                            {# £10,000.00#}
-                            {# </div>#}
-                        {#
-                    </div>#}
-                    {# <div style="display: inline;display: flex;padding-left: 5px;padding-top: 13px;">#}
-                        {# <div style="padding-left: .5rem; padding-right: .5rem; font-size: 23px;color: #E1216F;">#}
-                            {# =#}
-                            {# </div>#}
-                        {# <div style="color: #E1216F;font-size: 1.7rem;">#}
-                            {# <b>40.01%</b>#}
-                            {# </div>#}
-                        {# </div>#}
-                    {# </div>#}
-                {# </div>#}
-            {#
-        </div>#}
-        {# <br>#}
-        {# <div style="width: 65%;background-color: white;padding: 1rem;">#}
-            {# <div style="font-size: 1.2rem;">Your Facebook Budget</div>#}
-            {#
-            <hr>#}
-            {# <br>#}
-            {# <div></div>#}
-            {# <div style="display: inline-flex;">#}
-                {# <div style="padding-right: 9px;padding-left: 3rem;">#}
-                    {# <div style="padding: 4px;font-size: 1rem;font-weight: 550;">Last month you spent</div>#}
-                    {# <div style="padding: 4px;font-size: 1rem;font-weight: 550;">&nbsp;&nbsp;&nbsp;&nbsp;Towards your
-                        budget of</div>#}
-                    {# </div>#}
-                {# <br>#}
-                {# <div style="display: flex;">#}
-                    {# <div>#}
-                        {# <div style="color: #E1216F;font-size: 1rem;font-weight: 550;">#}
-                            {# £4,000.59#}
-                            {# </div>#}
-                        {#
-                        <hr>#}
-                        {# <div style="font-size: 1rem;font-weight: 550;">#}
-                            {# £10,000.00#}
-                            {# </div>#}
-                        {#
-                    </div>#}
-                    {# <div style="display: inline;display: flex;padding-left: 5px;padding-top: 13px;">#}
-                        {# <div style="padding-left: .5rem; padding-right: .5rem; font-size: 23px;color: #E1216F;">#}
-                            {# =#}
-                            {# </div>#}
-                        {# <div style="color: #E1216F;font-size: 1.7rem;">#}
-                            {# <b>40.01%</b>#}
-                            {# </div>#}
-                        {# </div>#}
-                    {# </div>#}
-                {# </div>#}
-            {#
-        </div>#}
-        {# <br>#}
-        {# #}
+
         {# Click Fraud Section Starts...#}
         {% if click_fraud_saving.total_savings > 0 %}
         <div style="width: 65%;background-color: white;padding: 1rem;">
@@ -242,10 +167,6 @@
                         <td style="border: 1px solid black;padding: 7px;">{{ currency_html }}{{ v.savings_30_day | intcomma:2}}</td>
                     </tr>
                     {% endfor %}
-                    {# <tr style="text-align: center;">#}
-                        {# <td style="border: 1px solid black;padding: 7px;">ring</td>#}
-                        {# <td style="border: 1px solid black;padding: 7px;">£756.76</td>#}
-                        {# </tr>#}
                 </table>
             </div>
         </div>
@@ -274,10 +195,7 @@
                     {% endfor %}
                 </tr>
                 {% endfor %}
-                {# <tr style="text-align: center;">#}
-                    {# <td style="border: 1px solid black;padding: 7px;background-color: #FDF6F5;">fabric sofas</td>#}
-                    {# <td style="border: 1px solid black;padding: 7px;background-color: #F2F9F8;">cuddle chair</td>#}
-                    {# </tr>#}
+
             </table>
         </div>
         <br>
