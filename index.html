@@ -225,6 +225,8 @@
         {% endif %}
         {# Click Fraud Section Ends...#}
         {# Most Popular searches Starts...#}
+
+        {%  if most_popular_searches %}
         <div style="width: 65%;background-color: white;padding: 1rem;">
             <span style="font-size: 1.2rem;">Most Popular Searches</span>
             <hr>
@@ -246,6 +248,7 @@
             </table>
         </div>
         <br>
+        {%  endif %}
         {# Most Popular searches ends...#}
         <br>
         <div>
