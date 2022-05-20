@@ -7,6 +7,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .inline-block {
+            display: inline-block !important;
+        }
+
+        .inline-f,
+        .flex {
+            display: flex !important;
+        }
+
+        /* .flex {
+            display: flex;
+        } */
+
+        .inline-flex {
+            display: inline-flex !important;
+        }
+
+        @media screen and (max-width: 497px) {
+
+            .inline-block,
+            .inline-f {
+                display: unset !important;
+            }
+
+            .inline,
+            .inline-flex {
+                display: inline-block !important;
+            }
+
+            .pd-pt {
+                padding-bottom: 7px;
+
+            }
+
+            /* .inline-flex {
+                display: inline-block !important;
+            } */
+        }
+
+        @media screen and (min-width: 498px) and (max-width: 537px) {
+            .inline-flex {
+                display: inline-block !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -15,28 +61,34 @@
         <br>
         <div style="width: 65%;background-color: white;padding: 1rem;">
             <div style="font-size: 36px;text-align:left;line-height:23px;"><span style="color: #E1216F;">a</span>d<span
-                    style="color: #E1216F;">i</span>nvestor</div>
+                    style="color: #E1216F;">i</span>nvestor
+            </div>
+            <div></div>
             <div>
-                <div style="text-align:left;font-weight: 100;">powered by <span
-                        style="color: #E1216F;"><b>push</b></span>
-                    <span style="float:right;color: #E1216F;">{{ date }}</span>
+                <div style="text-align:left;font-weight: 100;">
+                    <div>
+                        powered by
+                        <span style="color: #E1216F;"><b>push</b></span>
+                    </div>
+                    <div class="pd-pt" style="float:right;color: #E1216F;">{{ date }}</div>
                 </div>
             </div>
-            <span style="font-size: 1.2rem;">Performance Update for {{ clientName }}</span>
+            <br>
+            <span class="inline" style="font-size: 1.2rem;">Performance Update for {{ clientName }}</span>
             <br>
         </div>
         <br>
         <div style="width: 65%;background-color: white;padding: 1rem;">
             <span style="font-size: 1.2rem;">Last 30 Days Channel Performance</span>
             <hr>
-            <div style="display: inline-block;">
-                <div style="display: flex;">
-                    <div style="height: 13rem;padding-right: 2rem;">
+            <div style="display: inline-block;" class="inline-block">
+                <div class="inline-f">
+                    <div style="height: 13rem;">
                         <b
                             style="height: 19px;width: 94px; color: #333333;font-family: Lato;font-size: .8rem; font-weight: 900;letter-spacing: 0;line-height: 30px;">
                             Impressions
                         </b>
-                        <div style="color: #E1216F;font-size:19px;font-weight: 600;">{{ channel_performance.all.impressions | intcomma}}</div>
+                        <div style="color: #E1216F;font-size:19px;font-weight: 600;">{{channel_performance.all.impressions | intcomma}}</div>
                         <br>
                         <img style="width: 10rem;" src="{{ images.channel_performance.0 }}">
                     </div>
@@ -50,8 +102,8 @@
                         <img style="width: 10rem;" src="{{ images.channel_performance.1 }}">
                     </div>
                 </div>
-                <div style="display: flex">
-                    <div style="height: 13rem;padding-right: 2rem;">
+                <div class="inline-f">
+                    <div style="height: 13rem;">
                         <b
                             style="height: 19px;width: 94px; color: #333333;font-family: Lato;font-size: .8rem; font-weight: 900;letter-spacing: 0;line-height: 30px;">
                             Cost
@@ -66,77 +118,90 @@
                             style="height: 19px;width: 94px; color: #333333;font-family: Lato;font-size: .8rem; font-weight: 900;letter-spacing: 0;line-height: 30px;">
                             Conversions
                         </b>
-                        <div style="color: #E1216F;font-size:19px;font-weight: 600;">{{ channel_performance.all.conversions | intcomma}}</div>
+                        <div style="color: #E1216F;font-size:19px;font-weight: 600;">{{channel_performance.all.conversions | intcomma}}</div>
                         <br>
                         <img style="width: 10rem;" src="{{ images.channel_performance.3 }}">
                     </div>
                     {% endif %}
+
                 </div>
             </div>
             <br>
+
             <div style="padding-top: 1rem;">
                 <table style="width:43%;border-collapse: collapse;">
-                    <tr>
-                        <th style="border: 1px solid black;background-color:#E1476F;color: white;padding: 7px;">CTR</th>
-                        <th style="border: 1px solid black;background-color:#E1476F;color: white;padding: 7px;">CPC</th>
-                        <th style="border: 1px solid black;background-color:#E1476F;color: white;padding: 7px;">CPA</th>
-                    </tr>
-                    <tr style="text-align: center;">
-                        <td style="border: 1px solid black;padding: 7px;">{{ channel_performance.all.ctr | smart_decimal}}%</td>
-                        <td style="border: 1px solid black;padding: 7px;">{{ currency_html }}{{ channel_performance.all.cpc | intcomma:2}}</td>
-                        <td style="border: 1px solid black;padding: 7px;">{{ currency_html }}{{channel_performance.all.cpa | intcomma:2}} </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th style="border: 1px solid black;background-color:#E1476F;color: white;padding: 7px;">CTR
+                            </th>
+                            <th style="border: 1px solid black;background-color:#E1476F;color: white;padding: 7px;">CPC
+                            </th>
+                            <th style="border: 1px solid black;background-color:#E1476F;color: white;padding: 7px;">CPA
+                            </th>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td style="border: 1px solid black;padding: 7px;">{{ channel_performance.all.ctr |smart_decimal}}%</td>
+                            <td style="border: 1px solid black;padding: 7px;">{{ currency_html }}{{channel_performance.all.cpc | intcomma:2}}</td>
+                            <td style="border: 1px solid black;padding: 7px;">{{ currency_html }}{{channel_performance.all.cpa | intcomma:2}} </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
+
         </div>
         <br>
+        {# Best Performing Ads  Starts #}
         {% if best_ad.headline %}
-        <div style="width: 65%;background-color: white;padding: 1rem;">
-            <div>
-                <span style="font-size: 1.2rem;">Your Best Performing Ad</span>
-                <hr>
-                <div style="text-align: left;padding-left: 10rem; padding-right: 8rem;">
-                    <div style="color: #523DC3;font-weight: 600;padding: 4px;">{{ best_ad.headline }}</div>
-                    <div style="padding: 6px;">
-                        <b>Ad .</b>
-                        <span style="color:#63A472;">{{ best_ad.url_destinations.0 }}</span>
-                    </div>
-                    <div style="font-weight: 100;padding: 2px;">
-                        {{ best_ad.ad_text }}
+        <div>
+            <div style="width: 65%;background-color: white;padding: 1rem;">
+                <div>
+                    <span style="font-size: 1.2rem;">Your Best Performing Ad</span>
+                    <hr>
+                    <div style="text-align: left;">
+                        <div style="color: #523DC3;font-weight: 600;padding: 4px;">{{ best_ad.headline }}</div>
+                        <div style="padding: 6px;">
+                            <b>Ad .</b>
+                            <span style="color:#63A472;">{{ best_ad.url_destinations.0 }}</span>
+                        </div>
+                        <div style="font-weight: 100;padding: 2px;">
+                            {{ best_ad.ad_text }}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        {% endif %}
         <br>
+        {% endif %}
+        {# Best Performing Ads  Ends #}
+
         {# Budget Section Starts #}
         {% for key, values in budget_graph.items %}
         <div style="width: 65%;background-color: white;padding: 1rem;">
             <div style="font-size: 1.2rem;">Your {{ key | title }} Budget</div>
             <hr>
             <br>
-            <div style="display: inline-flex;">
-                <div style="padding-right: 9px;padding-left: 3rem;">
-                    <div style="padding: 4px;font-size: 1rem;font-weight: 550;">Last month you spent</div>
-                    <div style="padding: 4px;font-size: 1rem;font-weight: 550;">&nbsp;&nbsp;&nbsp;&nbsp;Towards your
+            <div style="display: inline-flex;" class="inline-flex">
+                <div style="padding-right: 9px;">
+                    <div style="padding: 4px;font-size: .8rem;font-weight: 550;">Last month you spent</div>
+                    <div style="padding: 4px;font-size: .8rem;font-weight: 550;">&nbsp;&nbsp;&nbsp;&nbsp;Towards your
                         budget of</div>
                 </div>
                 <br>
-                <div style="display: flex;">
+                <div style="display: flex;" class="flex">
                     <div>
-                        <div style="color: #E1216F;font-size: 1rem;font-weight: 550;">
+                        <div style="color: #E1216F;font-size: .8rem;font-weight: 550;">
                             {{ currency_html }}{{values.monthly_spend | intcomma:2}}
                         </div>
                         <hr>
-                        <div style="font-size: 1rem;font-weight: 550;">
+                        <div style="font-size: .8rem;font-weight: 550;">
                             {{ currency_html }}{{values.monthly_budget | intcomma}}
                         </div>
                     </div>
-                    <div style="display: inline;display: flex;padding-left: 5px;padding-top: 13px;">
-                        <div style="padding-left: .5rem; padding-right: .5rem; font-size: 23px;color: #E1216F;">
+                    <div style="display: flex;padding-left: 5px;padding-top: 13px;">
+                        <div style="padding-left: .5rem; padding-right: .5rem; font-size: 1rem;color: #E1216F;">
                             =
                         </div>
-                        <div style="color: #E1216F;font-size: 1.7rem;">
+                        <div style="color: #E1216F;font-size: 1.6rem;">
                             <b>{{ values.spend_perc | intcomma:2 }}%</b>
                         </div>
                     </div>
@@ -146,28 +211,14 @@
         <br>
         {% endfor %}
         {# Budget Section Ends here. #}
-
         {# Click Fraud Section Starts...#}
         {% if click_fraud_saving.total_savings > 0 %}
         <div style="width: 65%;background-color: white;padding: 1rem;">
             <span style="font-size: 1.2rem;">Click Fraud Savings</span>
             <hr>
             <div>
-                <h3>Your total Savings in the last 30 days <span style="color: #E1216F;">{{ currency_html }}{{ click_fraud_saving.total_savings | intcomma:2}}</span></h3>
-                <table style="width:50%;padding: 0px 0 1.5rem 0;border-collapse: collapse;">
-                    <tr>
-                        <th style="border: 1px solid black;padding: 7px;background-color: #E1216F; color: white;">Rule
-                        </th>
-                        <th style="border: 1px solid black;padding: 7px;background-color: #E1216F; color: white;">
-                            Potential Savings</th>
-                    </tr>
-                    {% for k,v in click_fraud_saving.exclusions.items %}
-                    <tr style="text-align: center;">
-                        <td style="border: 1px solid black;padding: 7px;">{{ k }}</td>
-                        <td style="border: 1px solid black;padding: 7px;">{{ currency_html }}{{ v.savings_30_day | intcomma:2}}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
+                <h3>Your total Savings in the last 30 days </h3>
+                <h3><span style="color: #E1216F;font-size: 1.6rem;">{{ currency_html }}{{ click_fraud_saving.total_savings | intcomma:2}}</span></h3>
             </div>
         </div>
         <br>
@@ -184,18 +235,14 @@
                     <th style="border: 1px solid black;padding: 7px;background-color: #E1216F; color: white;">{{ k | title }}
                         Keyword</th>
                     {% endfor %}
-                    {# <th style="border: 1px solid black;padding: 7px;background-color: #E1216F; color: white;">Bing#}
-                        {# Keyword</th>#}
-                </tr>
+                 </tr>
                 {% for searches in most_popular_searches.searches %}
                 <tr style="text-align: center;">
                     {% for word in searches %}
                     <td style="border: 1px solid black;padding: 7px;background-color: #FDF6F5;">{{ word}}</td>
-                    {# <td style="border: 1px solid black;padding: 7px;background-color: #F2F9F8;">sofa</td>#}
                     {% endfor %}
                 </tr>
                 {% endfor %}
-
             </table>
         </div>
         <br>
@@ -203,15 +250,16 @@
         <br>
         <div>
             <div>
-                <a href="https://adinvestor.com/dashboard" target="_blank"
-                    style="text-decoration: auto;padding:10px 1rem 10px 1rem;height: 3rem;width: 18rem;font-size: 1.9rem; color: white;background-color: #E1216F;border-radius: 12px;">FIND
-                    OUT MORE</a>
+                <button
+                    style="height: 3rem;width: 18rem;font-size: 19px; color: white;background-color: #E1216F;border-radius: 7px;">
+                    LOGIN TO YOUR PROFILE
+                </button>
             </div>
             <br>
             <div style="padding: 0px 0 4rem 0;">
                 <b>Adinvestor (A Trading Style of Push Group Ltd)</b>
                 <p>Huckletree West, Mediaworks, 191 Wood Lane, London W12 7FP</p>
-                <p>Support line: 0203 319 6462 | Support email: customer@adinvestor.co</p>
+                <p>Support line: 07853 357670 | Support email: customer@adinvestor.co</p>
             </div>
         </div>
     </div>
